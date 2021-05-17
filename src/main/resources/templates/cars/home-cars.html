@@ -1,0 +1,65 @@
+<!DOCTYPE html> 
+<html  xmlns:th="http://www.thymeleaf.org">
+
+
+	<head> 
+	<link href ="https://fonts.googleapis.com/css?family=Work+Sans:400,600')">
+	<link href = "rows.css" rel = "stylesheet" type = "text/css">
+	<link href = "header.css" rel = "stylesheet" type = "text/css">
+	
+	
+	<meta charset="UTF-8" />
+	<title>Home Menu</title>
+	
+     
+	</head> 
+	
+<body>
+    <div th:replace="header :: header"> </div>
+		<div>
+		
+		<a th:href="@{/cars/add}"
+		class="button">
+		Add Car
+		</a>
+			 <table class="table table-bordered table-striped">
+				<thead class="thead-m">
+				<th>Brand </th>
+				<th>Model </th>
+				<th>HorsePower</th>
+				<th>Mileage</th>
+				<th>Cubics</th>
+				<th>Color</th>
+				<th>Fuel</th>
+				<th>Transmission</th>	
+				<th>Price</th>
+				<th>Id</th>
+				<th>Contacts</th>	
+		
+			    </thead>
+			<tbody class="allrows">
+
+                
+				<tr th:each ="aCar : ${cars}">		
+					<td th:text = "${aCar.brand}">				
+					<td th:text = "${aCar.model}">
+					<td th:text = "${aCar.hp}">
+					<td th:text = "${aCar.mileage}">
+					<td th:text = "${aCar.cubic}">
+					<td th:text = "${aCar.color}">
+					<td th:text = "${aCar.fuel}">
+					<td th:text = "${aCar.transmission}">
+					<td th:text = "${aCar.price}">
+					<td th:text = "${aCar.id}">
+					<td class= "contact" onclick="window.location='/contacts';">More</td> 
+				</tr>
+		
+				
+			</tbody>
+
+			
+			</table>		
+		
+		</div>
+	
+</body>

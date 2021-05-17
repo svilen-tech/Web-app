@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="PrimeAuto"
+    />
+    <meta name="robots" content="index,follow" />
+   
+    <link
+      href="https://fonts.googleapis.com/css?family=Pattaya|Poppins:400,500&display=swap"
+      rel="stylesheet"
+    />
+   
+      
+        <title>PrimeAuto</title>
+        <link href ="home.css" rel="stylesheet"/>
+        <link href="header.css" rel="stylesheet" type="text/css">
+        
+        
+  </head>
+  <body>
+    <!--<div id="header"/>-->
+    <div th:replace="header :: header"> </div>
+    
+<section class="hero">
+
+
+
+
+            <label class="vehicletype">I am looking for</label>
+            
+            <form th:action="@{/searching}" method="get">
+                    
+                <label >Choose type</label>
+                    <select name="type">
+                    <option value="motor">Motorycle</option>
+                    <option value="car">Car</option>
+                    </select>
+                    <br/>
+                <label>Maximum price</label>					
+                    <select name="keyword">
+                    
+                    <option value = "3000">Up to 3000</option>
+                    <option value = "6000">Up to 6000</option>
+                    <option value = "9000">Up to 9000</option>
+                    <option value = "15000">Up to 15000</option>
+                    <option value = "20000">Up to 20000</option>
+                    <option value = "100000">Up to 100000</option>
+                    </select> 
+                
+                  
+         
+                
+                    
+                <button type="submit">Search</button>
+                
+            </form>
+           
+        </section>
+        
+            
+        </table>		
+                   
+                
+        </div>
+        
+
+
+    </tbody>
+
+
+
+</body>
+</html>
+
+
+
+

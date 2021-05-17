@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+
+	<meta charset="UTF-8" />
+	<title>Profile</title>
+	
+	<link href="myprofile.css" rel="stylesheet" type="text/css">
+	<link href="header.css" rel="stylesheet" type="text/css">
+</head>
+
+</head>
+
+<body>
+<div th:replace="header :: header"> </div>
+
+	<section class="hero2">
+	<div class="nickname">
+	<label>Hello,</label>
+	
+	 <tr  th:text="${myprofile}" />
+	<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Logout" />
+</form>
+	 
+	</div>
+	
+	
+	<br>
+
+	<label>Show my ads</label>
+
+
+	<form class="btn" th:action="@{/profile/cars}" method="get">
+       
+		<button type="submit">Your cars</button>
+		
+	</form>
+
+	<form class="btn" th:action="@{/profile/motors}" method="get">
+
+		
+		<button type="submit">Your motorcycles</button>
+		
+	</form>
+
+
+
+</section>
+
+</body>
+
+</html>

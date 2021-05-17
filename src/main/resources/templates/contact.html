@@ -1,0 +1,39 @@
+<!DOCTYPE html> 
+<html  xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="PrimeAuto"
+    />
+    <meta name="robots" content="index,follow" />
+ <link href="css/contact.css" rel="stylesheet" type="text/css">
+	
+</head>
+<body>
+<div class="container">
+  <form action="/contacts/save" th:object="${contact}" method="POST">
+
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name.." th:field="${contact.firstName}">
+
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name.." th:field="${contact.lastName}">
+    <label for="lname">Email</label>
+    <input type="text" id="email" name="email" placeholder="Your email.." th:field="${contact.email}">
+
+    <label for="country">Vehicle ID</label>
+   <input type="number" placeholder="Id.." th:field="${contact.carId}">
+
+    <label for="subject">Subject</label>
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px" ></textarea>
+ <!--<input type="hidden" name="_csrf" th:value="${_csrf.token}" />-->
+    <input type="submit" value="Submit" >
+   
+  </form>
+</div>
+</body>
+</html>

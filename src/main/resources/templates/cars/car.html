@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="header.css" rel="stylesheet" type="text/css">
+<link href="car.css" rel="stylesheet" type="text/css">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+h1 {
+  font-size: 2.6rem;
+}
+li,
+button,
+label,
+input,
+p {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 4.8rem;
+}
+h3 {
+  font-size: 3rem;
+  font-weight: normal;
+}
+h4,
+h5 {
+  font-size: 2.8rem;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+
+button {
+  padding: 0.8rem 1.6rem;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+button:hover {
+  background-color: rgb(126, 116, 101);
+}
+/* Nav Section With HERO */
+
+.main-head {
+  background: #131c27;
+  color: white;
+  position: sticky;
+  top: 0px;
+  z-index: 3;
+}
+nav {
+  display: flex;
+  width: 90%;
+  margin: auto;
+  padding: 1.5rem;
+  min-height: 10vh;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav ul {
+  display: flex;
+  flex: 1 1 40rem;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}
+#logo {
+  flex: 2 1 40rem;
+  font-family: "Pattaya", sans-serif;
+  font-weight: 400;
+}
+
+nav a:hover {
+  color: rgb(26, 109, 95);
+  transition: all ease-in-out 150ms;
+}
+
+</style>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+h1 {
+  font-size: 2.6rem;
+}
+li,
+button,
+label,
+input,
+p {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 4.8rem;
+}
+h3 {
+  font-size: 3rem;
+  font-weight: normal;
+}
+h4,
+h5 {
+  font-size: 2.8rem;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+.hero {
+  min-height: 90vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), transparent),
+    url("secondCar.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  text-align: left;
+}
+.vehicletype {
+  font-size: 3rem;
+}
+
+/* for rows */
+
+</style>
+</head>
+
+<body>
+   
+    <div th:replace="header :: header"> </div>
+
+
+<section class="hero">
+    <div class="container">
+        <form action="/cars/save" th:object="${car}" method="POST">
+            <label for="brand">Brand:</label>
+            <input type="text"  id= "brand" minlength=3 maxlength=10 title"Invalid" pattern="[a-zA-Z]+" placeholder="Brand"
+                th:field="${car.brand}"><br/>
+                <label for="model">Model:</label>
+            <input type="text"  id= "model"minlength=2 maxlength=10 title"Invalid" placeholder="Model" th:field="${car.model}"><br/>
+            <label> Horse Power:</label>
+            <input type="number" min=30 title"Min 30 HP" title="Min 30 HP" placeholder="Horse power"
+                th:field="${car.hp}"><br/>
+            <label>Mileage:</label>
+            <input type="number" placeholder="Mileage" th:field="${car.mileage}"><br />
+            <label> Cubics:</label>
+            <input type="number" min=600 title"Min 600" placeholder="Cubics" th:field="${car.cubic}"><br />
+            <label> Price:</label>
+            <input type="number" min=1 placeholder="Price" th:field="${car.price}"><br />
+            <label> Color:</label>
+            <input type="text" pattern="[a-zA-Z]+" placeholder="Color" th:field="${car.color}"><br />
+            <select class="fuel" th:field="${car.fuel}">
+                <option th:value="Diesel">Diesel</option>
+                <option th:value="Other">Gasoline</option>
+                <option th:value="Other">Other</option>
+            </select>
+
+            <select class="transmission" th:field="${car.transmission}">
+                <option th:value="Manual">Manual</option>
+                <option th:value="Auto">Auto</option>
+            </select><br/>
+            <label>Email</label>
+            <input type="text" minlength=5 maxlength=20 title"Invalid" title="Invalid" placeholder="email"
+                th:field="${car.email}">
+			
+         <!--   <input type="hidden" name="_csrf" th:value="${_csrf.token}" /> -->
+            <button type="submit">Add</button>
+        </form>
+    </div>
+</section>
+</body>
+
+</html>

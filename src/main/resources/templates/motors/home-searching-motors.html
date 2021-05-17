@@ -1,0 +1,65 @@
+<!DOCTYPE html> 
+<html  xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="PrimeAuto"
+    />
+	<title>Home Menu</title>
+	
+
+	  <link href="header.css" rel="stylesheet" type="text/css">
+      <link href="rows.css" rel="stylesheet" type="text/css">
+	
+	
+	
+	</head> 
+	
+<body>
+<header>
+<div th:replace="header :: header"> </div>
+
+
+
+		<div>
+		
+		
+			<table>
+				<thead class="thead-m">
+				<th>Brand </th>
+				<th>Model</th>
+				<th>Type</th>
+				<th>Color</th>
+				<th>Production Date</th>
+				<th>Cubic</th>
+				<th>Horsepower</th>	
+				<th>Price</th>	
+				
+		
+			</thead>
+			<tbody class="allrows">
+				<tr th:each ="aMotor : ${motors}">
+					<td th:text = "${aMotor.brand}">
+					<td th:text = "${aMotor.model}">
+					<td th:text = "${aMotor.type}">
+					<td th:text = "${aMotor.color}">
+					<td th:text = "${aMotor.dateOfProduction}">
+					<td th:text = "${aMotor.cubic}">
+					<td th:text = "${aMotor.hp}">
+					<td th:text = "${aMotor.price}">
+				</tr>
+				
+			</tbody>
+				
+			</table>		
+		
+		</div>
+
+
+
+	
+</body>
